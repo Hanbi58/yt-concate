@@ -8,6 +8,7 @@ from pipeline.steps.postflight import Postflight
 from pipeline.steps.read_caption import ReadCaption
 from pipeline.steps.search import Search
 from pipeline.steps.download_videos import DownloadVideos
+from pipeline.steps.edit_video import EditVideo
 
 CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'  # 不变的变量 一般全大写
 
@@ -16,6 +17,7 @@ def main():
     inputs = {
         'channel_id': CHANNEL_ID,
         'search_word': 'incredible',
+        'limit': 20,
 
     }
     steps = [
@@ -26,6 +28,7 @@ def main():
         ReadCaption(),
         Search(),
         DownloadVideos(),
+        EditVideo(),
         Postflight(),
     ]
 
